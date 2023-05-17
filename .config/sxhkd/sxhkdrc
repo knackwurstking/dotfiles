@@ -113,21 +113,21 @@ super + {Left,Down,Up,Right}
 
 # volume up
 XF86AudioRaiseVolume
-	amixer set Master 3%+
+	pamixer -i 3
 
 super + Up
-	amixer set Master 3%+
+	pamixer -i 3
 
 # volume down
 XF86AudioLowerVolume
-	amixer set Master 3%-
+	pamixer -d 3
 
 super + Down
-	amixer set Master 3%-
+	pamixer -d 3
 
 # volume mute
 XF86AudioMute
-	amixer -D pulse set Master 1+ toggle
+	pamixer -t
 
 # play
 XF86AudioPlay

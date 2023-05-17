@@ -11,3 +11,4 @@
 - volueicon
 - nm-applet
 - otf-firamono-nerd
+- pamixer
