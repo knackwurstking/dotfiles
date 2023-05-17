@@ -1,0 +1,7 @@
+#! /bin/bash
+# TODO https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/bspwm/bspwmrc
+
+log_file=$HOME/.bspwmrc.log
+
+pgrep -x sxhkd > /dev/null || sxhkd >> ${log_file} &
+pgrep -x picom > /dev/null || picom >> ${log_file} & # TODO configure picom before continue here
