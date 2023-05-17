@@ -14,6 +14,7 @@ xrandr --output DP-1 --right-of ${primary_monitor} --rate 60 --auto
 #
 # autostart
 #
+wmname LG3D
 pgrep -x sxhkd > /dev/null || sxhkd &
 pgrep -x picom > /dev/null || picom &
 pgrep -x nm-applet > /dev/null || nm-applet &
