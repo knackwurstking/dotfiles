@@ -1,7 +1,4 @@
 #! /bin/bash
-# TODO https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/bspwm/bspwmrc
-
-log_file=$HOME/.bspwmrc.log
 
 primary_monitor=DP-4
 
@@ -17,8 +14,8 @@ xrandr --output DP-1 --right-of ${primary_monitor} --rate 60 --auto
 #
 # autostart
 #
-pgrep -x sxhkd > /dev/null || sxhkd >> ${log_file} 2>&1 &
-pgrep -x picom > /dev/null || picom >> ${log_file} 2>&1 &
+pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x picom > /dev/null || picom &
 pgrep -x nm-applet > /dev/null || nm-applet &
 pgrep -x volumeicon > /dev/null || volumeicon &
 pgrep -x unclutter > /dev/null || unclutter -idle 0.5 -root &
@@ -29,7 +26,7 @@ killall --quiet polybar
 # wait until process have been shut down
 while pgrep -u $UID -x polybar > /dev/null; do : ; done
 
-MONITOR=${primary_monitor} polybar --reload primary >> ${log_file} 2>&1 &
+MONITOR=${primary_monitor} polybar --reload primary &
 
 # TODO handle wallpapers here...
 
