@@ -3,5 +3,70 @@
 
 log_file=$HOME/.bspwmrc.log
 
-pgrep -x sxhkd > /dev/null || sxhkd >> ${log_file} &
-pgrep -x picom > /dev/null || picom >> ${log_file} & # TODO configure picom before continue here
+primary_monitor=DP-4
+
+#
+# monitor(s) 
+#
+#   - DP-1 right monitor
+#   - DP-4 main monitor
+#
+xrandr --output ${primary_monitor} --rate 120 --primary --auto
+xrandr --output DP-1 --right-of ${primary_monitor} --rate 60 --auto
+
+#
+# autostart
+#
+pgrep -x sxhkd > /dev/null || sxhkd >> ${log_file} 2>&1 &
+pgrep -x picom > /dev/null || picom >> ${log_file} 2>&1 &
+pgrep -x nm-applet > /dev/null || nm-applet &
+pgrep -x volumeicon > /dev/null || volumeicon &
+pgrep -x unclutter > /dev/null || unclutter -idle 0.5 -root &
+
+# (re)start polybar
+killall --quiet polybar
+
+# wait until process have been shut down
+while pgrep -u $UID -x polybar > /dev/null; do : ; done
+
+MONITOR=${primary_monitor} polybar --reload primary >> ${log_file} 2>&1 &
+
+# TODO handle wallpapers here...
+
+bspc monitor $primary_monitor -d 1 2 3 4 5 6 7 8 9 
+bspc monitor DP-1 -d 0
+
+#
+# bspwm
+#
+
+#bspc config border_radius              8
+bspc config border_width               2
+bspc config window_gap                 10
+bspc config top_padding                20
+bspc config bottom_padding             0
+bspc config left_padding               0
+bspc config right_padding              0
+bspc config single_monocle             false
+bspc config click_to_focus             true
+bspc config split_ratio                0.50
+bspc config borderless_monocle         true
+bspc config gapless_monocle            true
+bspc config focus_by_distance          true
+bspc config focus_follows_pointer      true
+bspc config history_aware_focus        true
+bspc config remove_disabled_monitors   true
+bspc config merge_overlapping_monitors true
+bspc config pointer_modifier mod4
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+
+#### BSPWM coloring ####
+bspc config normal_border_color   "#4c566a"
+bspc config active_border_color   "#1e1e1e"
+bspc config focused_border_color  "#5e81ac"
+bspc config presel_feedback_color "#5e81ac"
+bspc config urgent_border_color   "#dd2727"
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
