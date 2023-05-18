@@ -11,6 +11,7 @@ pgrep -x picom > /dev/null || picom &
 pgrep -x nm-applet > /dev/null || nm-applet &
 pgrep -x volumeicon > /dev/null || volumeicon &
 pgrep -x unclutter > /dev/null || unclutter -idle 0.5 -root &
+pgrep -x lxqt-policykit-agent > /dev/null || lxqt-policykit-agent &
 
 # (re)start polybar
 killall --quiet polybar
