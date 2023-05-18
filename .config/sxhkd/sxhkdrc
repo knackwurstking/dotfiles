@@ -122,14 +122,14 @@ super + {Left,Down,Up,Right}
 XF86AudioRaiseVolume
 	pamixer -i 3
 
-super + Up
+super + period
 	pamixer -i 3
 
 # volume down
 XF86AudioLowerVolume
 	pamixer -d 3
 
-super + Down
+super + comma 
 	pamixer -d 3
 
 # volume mute
