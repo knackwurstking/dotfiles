@@ -3,6 +3,26 @@
 primary_monitor=DP-4
 
 #
+# autostart
+#
+wmname LG3D
+pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x picom > /dev/null || picom &
+pgrep -x nm-applet > /dev/null || nm-applet &
+pgrep -x volumeicon > /dev/null || volumeicon &
+pgrep -x unclutter > /dev/null || unclutter -idle 0.5 -root &
+
+# (re)start polybar
+killall --quiet polybar
+
+# wait until process have been shut down
+while pgrep -u $UID -x polybar > /dev/null; do : ; done
+
+MONITOR=${primary_monitor} polybar --reload primary &
+
+# TODO handle wallpapers here...
+
+#
 # monitor(s) 
 #
 #   - DP-1 right monitor
@@ -11,8 +31,8 @@ primary_monitor=DP-4
 xrandr --output ${primary_monitor} --rate 120 --primary --auto
 xrandr --output DP-1 --right-of ${primary_monitor} --rate 60 --auto
 
-bspc monitor $primary_monitor -d 1 2 3 4 5 6 7 8 9 
-bspc monitor DP-1 -d 0
+bspc monitor $primary_monitor -d 1 2 3 4 5 6 7 8 9 0
+bspc monitor DP-1 -d 1 2 3 4 5 6 7 8 9 0
 
 #
 # bspwm
@@ -48,23 +68,3 @@ bspc config presel_feedback_color "#5e81ac"
 bspc config urgent_border_color   "#dd2727"
 
 bspc rule -a Gimp state=floating follow=on
-
-#
-# autostart
-#
-wmname LG3D
-pgrep -x sxhkd > /dev/null || sxhkd &
-pgrep -x picom > /dev/null || picom &
-pgrep -x nm-applet > /dev/null || nm-applet &
-pgrep -x volumeicon > /dev/null || volumeicon &
-pgrep -x unclutter > /dev/null || unclutter -idle 0.5 -root &
-
-# (re)start polybar
-killall --quiet polybar
-
-# wait until process have been shut down
-while pgrep -u $UID -x polybar > /dev/null; do : ; done
-
-MONITOR=${primary_monitor} polybar --reload primary &
-
-# TODO handle wallpapers here...
