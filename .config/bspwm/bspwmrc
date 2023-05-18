@@ -23,8 +23,8 @@ MONITOR=${primary_monitor} polybar --reload primary &
 MONITOR=DP-1 polybar --reload secondary &
 
 feh --bg-scale \
-  "$HOME/Pictures/Wallpaper/32_9/city_night.jpg" \
-  "$HOME/Pictures/Wallpaper/16_9/wallpaperflare.com_wallpaper(1).jpg"
+  "$HOME/Pictures/Wallpaper/32_9/titanfall.jpg" \
+  "$HOME/Pictures/Wallpaper/16_9/titanfall.jpg"
 
 #
 # monitor(s) 
