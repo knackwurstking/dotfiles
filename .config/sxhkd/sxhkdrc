@@ -65,11 +65,11 @@ super + shift + {h,j,k,l}
 	bspc node -s {west,south,north,east}
 
 # focus or send to the given desktop
-super + {1-9,0}
-	bspc desktop -f focused:'^{1-9,0}'
+super + {1-9}
+	bspc desktop -f focused:'^{1-9}'
 
-super + shift + {1-9,0}
-	bspc node -d focused:'^{1-9,0}'
+super + shift + {1-9}
+	bspc node -d focused:'^{1-9}'
 
 # focus desktop/monitor
 super + ctrl + {h,l}
