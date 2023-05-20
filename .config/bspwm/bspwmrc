@@ -36,8 +36,8 @@ MONITOR=${primary_monitor} polybar --reload primary &
 MONITOR=DP-1 polybar --reload secondary &
 
 feh --bg-scale \
-  "$HOME/Pictures/Wallpaper/32_9/titanfall.jpg" \
-  "$HOME/Pictures/Wallpaper/16_9/titanfall.jpg"
+  "$HOME/Pictures/Wallpaper/32_9/arch-gruvbox.jpg" \
+  "$HOME/Pictures/Wallpaper/16_9/gruvbox.jpg"
 
 #
 # bspwm
@@ -45,12 +45,12 @@ feh --bg-scale \
 
 #bspc config border_radius              8
 bspc config border_width               2
-bspc config window_gap                 10
-bspc config top_padding                20
-bspc config bottom_padding             0
+bspc config window_gap                 15
+bspc config top_padding                25
+bspc config bottom_padding             10
 bspc config left_padding               0
 bspc config right_padding              0
-bspc config single_monocle             false
+bspc config single_monocle             true 
 bspc config click_to_focus             true
 bspc config split_ratio                0.50
 bspc config borderless_monocle         true
