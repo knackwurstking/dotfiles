@@ -1,0 +1,7 @@
+[user]
+	email = knackwurstking.tux@gmail.com
+	name = Udo Bauer
+[init]
+	defaultBranch = main
+[http]
+	postBuffer = 524288000

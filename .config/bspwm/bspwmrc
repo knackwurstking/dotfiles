@@ -35,9 +35,9 @@ while pgrep -u $UID -x polybar > /dev/null; do : ; done
 MONITOR=${primary_monitor} polybar --reload primary &
 MONITOR=DP-1 polybar --reload secondary &
 
-feh --bg-scale \
-  "$HOME/Pictures/Wallpaper/32_9/arch-gruvbox.jpg" \
-  "$HOME/Pictures/Wallpaper/16_9/gruvbox.jpg"
+#feh --bg-scale \
+#  "$HOME/Pictures/Wallpaper/32_9/arch-gruvbox.jpg" \
+#  "$HOME/Pictures/Wallpaper/16_9/gruvbox.jpg"
 
 #
 # bspwm
