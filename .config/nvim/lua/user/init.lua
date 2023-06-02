@@ -18,8 +18,8 @@ return {
   },
 
   -- Set colorscheme to use
-  --colorscheme = "astrodark",
-  colorscheme = "gruvbox",
+  colorscheme = "astrodark",
+  --colorscheme = "gruvbox",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -32,7 +32,7 @@ return {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = false, -- enable or disable format on save globally
+        enabled = true, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -82,6 +82,6 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
-    vim.cmd("highlight Normal ctermbg=NONE guibg=NONE")
+    --vim.cmd("highlight Normal ctermbg=NONE guibg=NONE")
   end,
 }

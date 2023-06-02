@@ -1,18 +1,17 @@
 #! /bin/bash
 
-primary_monitor=DP-4
+primary_monitor=eDP-1
 
 #
 # monitor(s) 
 #
-#   - DP-1 right monitor
-#   - DP-4 main monitor
-#
-xrandr --output ${primary_monitor} --rate 120 --primary --auto
-xrandr --output DP-1 --right-of ${primary_monitor} --rate 60 --auto
+xrandr \
+  --output ${primary_monitor} \
+  --scale 0.6x0.6 \
+  --primary \
+  --auto
 
 bspc monitor $primary_monitor -d 1 2 3 4 5 6 7 8 9
-bspc monitor DP-1 -d 1 2 3 4 5 6 7 8 9
 
 
 #
@@ -33,11 +32,9 @@ killall --quiet polybar
 while pgrep -u $UID -x polybar > /dev/null; do : ; done
 
 MONITOR=${primary_monitor} polybar --reload primary &
-MONITOR=DP-1 polybar --reload secondary &
 
-#feh --bg-scale \
-#  "$HOME/Pictures/Wallpaper/32_9/arch-gruvbox.jpg" \
-#  "$HOME/Pictures/Wallpaper/16_9/gruvbox.jpg"
+feh --bg-scale \
+  "$HOME/Pictures/Wallpaper/16_10/gruvbox.webp"
 
 #
 # bspwm
