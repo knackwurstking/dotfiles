@@ -162,9 +162,9 @@ XF86MonBrightnessDown
 
 # NOTE `pip install --user xinput` && `sudo pacman -S xorg-xinput`
 # disable touchpad
-super + t
+super + z
 	disable-touchpad
 
 # enable touchpad
-super + shift + t
+super + shift + z
 	enable-touchpad
