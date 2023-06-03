@@ -159,3 +159,11 @@ XF86MonBrightnessUp
 # brightness down
 XF86MonBrightnessDown
 	xbacklight -dec 10
+
+# disable touchpad
+super + t
+	disable-touchpad
+
+# enable touchpad
+super + shift + t
+	enable-touchpad
