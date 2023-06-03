@@ -160,6 +160,7 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
 	xbacklight -dec 10
 
+# NOTE `pip install --user xinput` && `sudo pacman -S xorg-xinput`
 # disable touchpad
 super + t
 	disable-touchpad
